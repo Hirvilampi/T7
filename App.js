@@ -31,7 +31,7 @@ export default function App() {
       .catch(err => console.error(err))
       .finally(() => setLoading(false));
   }, []);
-//  console.log(currencies);
+  //  console.log(currencies);
 
   const convert = () => {
     const numeric = parseFloat(keyword);
@@ -42,10 +42,20 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={{fontSize: 24}}>{value} €</Text>
-        {loading && <ActivityIndicator size="large" />} 
+      <View style={{ justifyContent: 'flex-end', backgroundColor: 'white', paddingBottom: 0, marginBottom: 0, marginEnd:0, paddingEnd: 0 }}>
+        <Image
+          style={{ width: 300, aspectRatio: 1, resizeMode: 'contain', marginBottom: 0 }}
+          source={{ uri: "https://cdn.skuola.net/news_foto/2011/euri.jpg" }}
+        />
+      </View>
+      <View style={{justifyContent: 'flex-start', backgroundColor: 'white'}}>
+        <Text style={{ fontSize: 24, marginBottom: 0, marginTop: 0 }}>{value} €</Text>
+        {loading && <ActivityIndicator size="large" />}
+      </View>
 
-      <View style={{paddingTop: 20, textDecorationLine: 'underline', flexDirection: 'row', marginLeft:100,}}>
+
+      <View style={{  textDecorationLine: 'underline', flexDirection: 'row', 
+        marginLeft: 100, backgroundColor: 'white'}}>
         <TextInput
           style={{ fontSize: 18, borderRadius: 6 }}
           placeholder='Amount'
@@ -66,9 +76,10 @@ export default function App() {
         </Picker>
       </View>
 
-      <View>
+      <View  style={{flex: 1}}>
         <Button title="CONVERT" onPress={convert} />
       </View>
+
 
       <StatusBar />
     </SafeAreaView>
