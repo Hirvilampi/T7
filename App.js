@@ -35,7 +35,8 @@ export default function App() {
 
   const convert = () => {
     const numeric = parseFloat(keyword);
-    const newrate = numeric * currencies[currency]
+    const newrate = numeric / currencies[currency]
+    console.log(currencies[currency])
     setValue(newrate.toFixed(2));
   }
 
